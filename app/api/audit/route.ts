@@ -4,8 +4,8 @@ import * as cheerio from 'cheerio';
 
 interface AuditScore {
   score: number;
-  performanceScore: number;
-  accessibilityScore: number;
+  performanceScore: number | null;
+  accessibilityScore: number | null;
   metaTagsScore: number;
   schemaMarkupScore: number;
   issues: string[];
@@ -26,6 +26,7 @@ interface AuditScore {
     };
     hasLocalBusinessSchema: boolean;
     mobileUsable: boolean;
+    pageSpeedAvailable: boolean;
   };
 }
 
@@ -116,19 +117,23 @@ export async function POST(request: NextRequest) {
       return current;
     };
 
+    // Extract PageSpeed scores, checking for valid data (not 0 from API failure)
     const performanceScoreValue = pageSpeedData
       ? getValueSafely(pageSpeedData, ['lighthouseResult', 'categories', 'performance', 'score'])
       : undefined;
-    const performanceScore = typeof performanceScoreValue === 'number'
+    const performanceScore = typeof performanceScoreValue === 'number' && performanceScoreValue > 0
       ? Math.round(performanceScoreValue * 100)
-      : 0;
+      : null;
 
     const accessibilityScoreValue = pageSpeedData
       ? getValueSafely(pageSpeedData, ['lighthouseResult', 'categories', 'accessibility', 'score'])
       : undefined;
-    const accessibilityScore = typeof accessibilityScoreValue === 'number'
+    const accessibilityScore = typeof accessibilityScoreValue === 'number' && accessibilityScoreValue > 0
       ? Math.round(accessibilityScoreValue * 100)
-      : 0;
+      : null;
+
+    // Check if PageSpeed API returned valid data
+    const pageSpeedAvailable = performanceScore !== null || accessibilityScore !== null;
 
     const metaTagsScore = calculateMetaTagsScore(scrapedData.metaTags);
     const schemaScore = scrapedData.hasLocalBusinessSchema ? 100 : 0;
@@ -232,10 +237,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Performance Analysis (100% verifiable - from PageSpeed Insights API)
-    if (performanceScore < 50) {
+    if (performanceScore === null) {
+      actionItems.push({
+        title: 'Performance-Audit nicht verfügbar',
+        description: `Die Google PageSpeed Insights API konnte die Website nicht analysieren. Dies kann vorkommen wenn:\n\n1. Die Website nicht erreichbar ist\n2. Die Website geblockt oder geschützt ist\n3. Die API-Rate-Limits erreicht sind\n\nBitte überprüfen Sie, dass:\n- Die Domain korrekt ist\n- Die Website öffentlich erreichbar ist\n- Keine IP-Blöcke oder Firewalls den Zugriff verhindern\n\nVersuch später erneut.`,
+        priority: 'high',
+      });
+      issues.push('Performance-Daten nicht verfügbar');
+    } else if (performanceScore < 50) {
       issues.push('Ladegeschwindigkeit kritisch niedrig');
       actionItems.push({
-        title: `Website-Performance verbessern (Lichthouse Score: ${performanceScore}/100)`,
+        title: `Website-Performance verbessern (Lighthouse Score: ${performanceScore}/100)`,
         description: `Die Ladegeschwindigkeit ist kritisch (${performanceScore}/100). Dies beeinträchtigt Rankings und Nutzererlebnis. Typische Optimierungen:\n\n1. Bilder komprimieren (WebP-Format, Lazy Loading)\n2. Render-blocking CSS/JS identifizieren\n3. Unnötige Scripts entfernen\n4. Server-Response-Zeit reduzieren\n\nZiel: Score > 70 in 4 Wochen.`,
         priority: 'high',
       });
@@ -251,7 +263,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Accessibility (100% verifiable - from PageSpeed Insights API)
-    if (accessibilityScore < 50) {
+    if (accessibilityScore === null) {
+      actionItems.push({
+        title: 'Barrierefreiheit-Audit nicht verfügbar',
+        description: `Die Google PageSpeed Insights API konnte die Barrierefreiheit nicht analysieren. Dies ist häufig mit Performance-API-Fehlern verbunden. Versuchen Sie später erneut.`,
+        priority: 'low',
+      });
+    } else if (accessibilityScore < 50) {
       issues.push('Barrierefreiheit kritisch niedrig');
       actionItems.push({
         title: `Barrierefreiheit verbessern (Accessibility Score: ${accessibilityScore}/100)`,
@@ -262,12 +280,26 @@ export async function POST(request: NextRequest) {
       strengths.push(`✓ Gute Barrierefreiheit (${accessibilityScore}/100)`);
     }
 
-    const score = Math.round(
-      (performanceScore * 0.25 + accessibilityScore * 0.15 + metaTagsScore * 0.3 + schemaScore * 0.3)
-    );
+    // Calculate score based on available data only
+    let score: number;
+    if (pageSpeedAvailable) {
+      // All data available: use full weighted calculation
+      const perfScore = performanceScore ?? 0;
+      const accScore = accessibilityScore ?? 0;
+      score = Math.round(
+        (perfScore * 0.25 + accScore * 0.15 + metaTagsScore * 0.3 + schemaScore * 0.3)
+      );
+    } else {
+      // PageSpeed API failed: only use verifiable meta tags and schema scores
+      // Adjust weights to sum to 1.0 (0.3 + 0.3 = 0.6, so divide by 0.6)
+      score = Math.round(
+        ((metaTagsScore * 0.3 + schemaScore * 0.3) / 0.6) * 100
+      ) / 100 * 100;
+      if (isNaN(score)) score = Math.round((metaTagsScore + schemaScore) / 2);
+    }
 
     const result: AuditScore = {
-      score,
+      score: Math.round(score),
       performanceScore,
       accessibilityScore,
       metaTagsScore,
@@ -281,6 +313,7 @@ export async function POST(request: NextRequest) {
         metaTags: scrapedData.metaTags,
         hasLocalBusinessSchema: scrapedData.hasLocalBusinessSchema,
         mobileUsable: pageSpeedData ? getValueSafely(pageSpeedData, ['lighthouseResult', 'configSettings', 'emulatedFormFactor']) === 'mobile' : false,
+        pageSpeedAvailable,
       },
     };
 
