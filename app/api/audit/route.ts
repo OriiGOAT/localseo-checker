@@ -137,73 +137,129 @@ export async function POST(request: NextRequest) {
     const strengths: string[] = [];
     const actionItems: AuditScore['actionItems'] = [];
 
-    // Meta tags validation
+    // Meta Title Validation (100% verifiable - scraped from HTML)
     if (!scrapedData.metaTags.title) {
-      issues.push('Meta title fehlt');
+      issues.push('Meta-Titel fehlt');
       actionItems.push({
-        title: 'Meta-Titel hinzufügen',
-        description: 'Fügen Sie einen aussagekräftigen Meta-Titel hinzu (50-60 Zeichen)',
+        title: `Meta-Titel für ${domain} hinzufügen`,
+        description: `Fügen Sie einen einzigartigen Meta-Titel (50-60 Zeichen) hinzu. Beispiel:\n<title>Startseite | ${domain}</title>\n\nOptimal: 50-60 Zeichen, Fokus-Keyword am Anfang, Brand-Name am Ende.`,
         priority: 'high',
       });
     } else {
-      strengths.push('Meta-Titel vorhanden');
+      const titleLength = (scrapedData.metaTags.title as string).length;
+      strengths.push(`Meta-Titel vorhanden (${titleLength} Zeichen)`);
+
+      if (titleLength < 30) {
+        issues.push('Meta-Titel ist zu kurz');
+        actionItems.push({
+          title: 'Meta-Titel verlängern',
+          description: `Ihr aktueller Titel: "${scrapedData.metaTags.title}"\n\nEr ist nur ${titleLength} Zeichen lang. Ideal sind 50-60 Zeichen. Beispiel:\n<title>Professionelle Dienstleistungen in ${domain} | Top-Qualität</title>`,
+          priority: 'medium',
+        });
+      } else if (titleLength > 70) {
+        issues.push('Meta-Titel ist zu lang');
+        actionItems.push({
+          title: 'Meta-Titel kürzen',
+          description: `Ihr aktueller Titel ist ${titleLength} Zeichen lang und wird in Suchergebnissen gekürzt. Ideal sind 50-60 Zeichen. Kürzen Sie ihn auf:\n<title>Hauptkeyword | ${domain.split('.')[0]}</title>`,
+          priority: 'low',
+        });
+      }
     }
 
+    // Meta Description Validation (100% verifiable - scraped from HTML)
     if (!scrapedData.metaTags.description) {
       issues.push('Meta-Beschreibung fehlt');
       actionItems.push({
-        title: 'Meta-Beschreibung hinzufügen',
-        description: 'Verfassen Sie eine aussagekräftige Meta-Beschreibung (150-160 Zeichen)',
+        title: 'Meta-Beschreibung für ${domain} erstellen',
+        description: `Erstellen Sie eine überzeugende Meta-Beschreibung (150-160 Zeichen). Beispiel:\n<meta name="description" content="Hochwertige Leistungen für ${domain}. Erfahren Sie, wie wir Ihnen helfen können. Jetzt beraten lassen!">\n\nMuss ein Call-to-Action enthalten und für Suchmaschinen optimiert sein.`,
         priority: 'high',
       });
     } else {
-      strengths.push('Meta-Beschreibung vorhanden');
+      const descLength = (scrapedData.metaTags.description as string).length;
+      strengths.push(`Meta-Beschreibung vorhanden (${descLength} Zeichen)`);
+
+      if (descLength < 120) {
+        issues.push('Meta-Beschreibung ist zu kurz');
+        actionItems.push({
+          title: 'Meta-Beschreibung erweitern',
+          description: `Ihre aktuelle Beschreibung: "${scrapedData.metaTags.description}"\n\nSie ist nur ${descLength} Zeichen. Ideal sind 150-160 Zeichen. Erweitern Sie sie um einen Call-to-Action:\n<meta name="description" content="${scrapedData.metaTags.description} Kontaktieren Sie uns noch heute!">`,
+          priority: 'medium',
+        });
+      } else if (descLength > 160) {
+        issues.push('Meta-Beschreibung ist zu lang');
+        actionItems.push({
+          title: 'Meta-Beschreibung kürzen',
+          description: `Ihre Beschreibung ist ${descLength} Zeichen und wird in Suchergebnissen gekürzt. Kürzen Sie auf 150-160 Zeichen. Entfernen Sie Redundanzen und konzentrieren Sie sich auf den wichtigsten Nutzen für den Nutzer.`,
+          priority: 'low',
+        });
+      }
     }
 
+    // Viewport Meta Tag (100% verifiable - scraped from HTML)
     if (!scrapedData.metaTags.viewport) {
       issues.push('Viewport Meta-Tag fehlt');
       actionItems.push({
-        title: 'Viewport Meta-Tag hinzufügen',
-        description: 'Fügen Sie <meta name="viewport" content="width=device-width, initial-scale=1"> hinzu',
+        title: 'Viewport Meta-Tag konfigurieren',
+        description: `Mobile-Responsivität ist nicht konfiguriert. Fügen Sie dieses Tag im <head> hinzu:\n<meta name="viewport" content="width=device-width, initial-scale=1">\n\nOhne Viewport wird die Website auf mobilen Geräten nicht korrekt angezeigt.`,
         priority: 'high',
       });
     } else {
-      strengths.push('Mobile-Responsivität konfiguriert');
+      strengths.push('✓ Viewport Meta-Tag vorhanden - Mobile-Responsivität konfiguriert');
     }
 
+    // Canonical URL (100% verifiable - scraped from HTML)
     if (!scrapedData.metaTags.canonicalUrl) {
       issues.push('Kanonische URL fehlt');
       actionItems.push({
         title: 'Kanonische URL definieren',
-        description: 'Legen Sie eine kanonische URL fest, um Duplicate-Content-Probleme zu vermeiden',
+        description: `Definieren Sie eine kanonische URL, um Duplicate-Content-Probleme zu vermeiden:\n<link rel="canonical" href="https://${domain}/">\n\nDies verhindert, dass Google verwandte URLs als Duplikate einstuft.`,
         priority: 'medium',
       });
     } else {
-      strengths.push('Kanonische URL vorhanden');
+      strengths.push('✓ Kanonische URL konfiguriert');
     }
 
-    // LocalBusiness Schema
+    // LocalBusiness Schema (100% verifiable - JSON-LD detection)
     if (!scrapedData.hasLocalBusinessSchema) {
       issues.push('LocalBusiness Schema Markup fehlt');
       actionItems.push({
         title: 'LocalBusiness Schema Markup hinzufügen',
-        description:
-          'Implementieren Sie strukturierte Daten für Local SEO mit JSON-LD LocalBusiness Schema',
+        description: `Implementieren Sie strukturierte Daten für bessere Local-SEO. Fügen Sie dieses JSON-LD im <head> ein:\n<script type="application/ld+json">{\n  "@context": "https://schema.org",\n  "@type": "LocalBusiness",\n  "name": "${domain}",\n  "url": "https://${domain}",\n  "telephone": "+49...",\n  "address": {\n    "@type": "PostalAddress",\n    "streetAddress": "Straße 123",\n    "addressLocality": "Stadt",\n    "postalCode": "12345",\n    "addressCountry": "DE"\n  }\n}</script>\n\nDies hilft Google, Ihr Unternehmen korrekt in der lokalen Suche anzuzeigen.`,
         priority: 'high',
       });
     } else {
-      strengths.push('LocalBusiness Schema Markup vorhanden');
+      strengths.push('✓ LocalBusiness Schema Markup vorhanden');
     }
 
-    // Performance
+    // Performance Analysis (100% verifiable - from PageSpeed Insights API)
     if (performanceScore < 50) {
+      issues.push('Ladegeschwindigkeit kritisch niedrig');
       actionItems.push({
-        title: 'Performance optimieren',
-        description: 'Verbesserungen der Ladegeschwindigkeit können die Rankings verbessern',
+        title: `Website-Performance verbessern (Lichthouse Score: ${performanceScore}/100)`,
+        description: `Die Ladegeschwindigkeit ist kritisch (${performanceScore}/100). Dies beeinträchtigt Rankings und Nutzererlebnis. Typische Optimierungen:\n\n1. Bilder komprimieren (WebP-Format, Lazy Loading)\n2. Render-blocking CSS/JS identifizieren\n3. Unnötige Scripts entfernen\n4. Server-Response-Zeit reduzieren\n\nZiel: Score > 70 in 4 Wochen.`,
         priority: 'high',
       });
+    } else if (performanceScore < 75) {
+      issues.push('Ladegeschwindigkeit verbesserungsbedürftig');
+      actionItems.push({
+        title: `Website-Performance optimieren (Lighthouse Score: ${performanceScore}/100)`,
+        description: `Die Ladegeschwindigkeit ist verbesserungsbedürftig (${performanceScore}/100). Konkrete Maßnahmen:\n\n1. Browser-Caching aktivieren\n2. CSS/JS minimieren\n3. Unused CSS entfernen\n\nZiel: Score > 80.`,
+        priority: 'medium',
+      });
     } else if (performanceScore >= 90) {
-      strengths.push('Ausgezeichnete Performance');
+      strengths.push(`✓ Hervorragende Ladegeschwindigkeit (${performanceScore}/100)`);
+    }
+
+    // Accessibility (100% verifiable - from PageSpeed Insights API)
+    if (accessibilityScore < 50) {
+      issues.push('Barrierefreiheit kritisch niedrig');
+      actionItems.push({
+        title: `Barrierefreiheit verbessern (Accessibility Score: ${accessibilityScore}/100)`,
+        description: `Barrierefreiheit ist niedrig (${accessibilityScore}/100). Kritische Mängel:\n\n1. Überprüfen Sie Alt-Texte bei Bildern\n2. Farbkontrast ist möglicherweise zu gering\n3. Headings-Struktur überprüfen (h1 → h2 → h3)\n4. ARIA-Labels auf interaktiven Elementen hinzufügen\n\nZiel: Score > 80.`,
+        priority: 'high',
+      });
+    } else if (accessibilityScore >= 90) {
+      strengths.push(`✓ Gute Barrierefreiheit (${accessibilityScore}/100)`);
     }
 
     const score = Math.round(
