@@ -1,0 +1,1447 @@
+
+> localseo-checker@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+  - Environments: .en ○ Compiling / ...
+ ✓ Compiled / in 827ms (   Reload env: .env.local
+[?25h
+ ✓ Compiled in 88ms (247 modules)
+ GET / 200 in 22ms
+ ✓ Compiled /favicon.ico in 227ms (289 modules)
+ GET /favicon.ico 200 in 266ms
+ ○ Compiling /api/audit ...
+ ✓ Compiled /api/audit in 1159ms (712 modules)
+ POST /api/audit 200 in 21038ms
+ GET / 200 in 47ms
+ ✓ Compiled /api/create-checkout-session in 432ms (873 modules)
+ POST /api/create-checkout-session 200 in 1583ms
+ ✓ Compiled /api/webhook in 168ms (632 modules)
+Processing audit for ok99.de (metinkollias@gmail.com)
+ POST /api/webhook 200 in 197ms
+ POST /api/webhook 200 in 54ms
+ POST /api/webhook 200 in 223ms
+ ✓ Compiled /api/audit in 96ms (891 modules)
+Scraping error: AxiosError: getaddrinfo ENOTFOUND ok99.de
+    at AxiosError.from (webpack-internal:///(rsc)/./node_modules/axios/lib/core/AxiosError.js:83:24)
+    at RedirectableRequest.handleRequestError (webpack-internal:///(rsc)/./node_modules/axios/lib/adapters/http.js:1138:77)
+    at RedirectableRequest.emit (node:events:521:24)
+    at eventHandlers.<computed> (webpack-internal:///(rsc)/./node_modules/follow-redirects/index.js:56:24)
+    at ClientRequest.emit (node:events:509:20)
+    at emitErrorEvent (node:_http_client:111:11)
+    at TLSSocket.socketErrorListener (node:_http_client:607:5)
+    at TLSSocket.emit (node:events:521:24)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (webpack-internal:///(rsc)/./node_modules/axios/lib/core/Axios.js:59:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async scrapeMetaTags (webpack-internal:///(rsc)/./app/api/audit/route.ts:33:26)
+    at async Promise.all (index 1)
+    at async POST (webpack-internal:///(rsc)/./app/api/audit/route.ts:71:46)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  isAxiosError: true,
+  code: 'ENOTFOUND',
+  config: [Object: null prototype] {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true,
+      advertiseZstdAcceptEncoding: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 10000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': undefined,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    method: 'get',
+    url: 'https://ok99.de',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> Writable {
+    _events: {
+      close: undefined,
+      error: [Function: handleRequestError],
+      prefinish: undefined,
+      finish: undefined,
+      drain: undefined,
+      response: [Function: handleResponse],
+      socket: [Array],
+      timeout: undefined,
+      abort: undefined
+    },
+    _writableState: WritableState {
+      highWaterMark: 65536,
+      length: 0,
+      corked: 0,
+      onwrite: [Function (anonymous)],
+      writelen: 0,
+      bufferedIndex: 0,
+      pendingcb: 0,
+      Symbol(kState): 17581054,
+      Symbol(kBufferedValue): null,
+      Symbol(kErroredValue): [Error]
+    },
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: Infinity,
+      protocol: 'https:',
+      path: '/',
+      method: 'GET',
+      headers: [Object: null prototype],
+      agents: [Object],
+      auth: undefined,
+      family: undefined,
+      beforeRedirect: [Function: dispatchBeforeRedirect],
+      beforeRedirects: [Object: null prototype],
+      http2Options: undefined,
+      hostname: 'ok99.de',
+      port: '',
+      agent: undefined,
+      insecureHTTPParser: false,
+      nativeProtocols: [Object],
+      sensitiveHeaders: [],
+      pathname: '/'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _eventsCount: 3,
+    _onNativeResponse: [Function (anonymous)],
+    _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+    _currentRequest: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      _header: 'GET / HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: ok99.de\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: false,
+      httpValidation: undefined,
+      joinDuplicateHeaders: undefined,
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: [Function: emitRequestTimeout],
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'ok99.de',
+      protocol: 'https:',
+      _redirectable: [Circular *1],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kPath): '/',
+      Symbol(kUniqueHeaders): null,
+      Symbol(kError): [Error]
+    },
+    _currentUrl: 'https://ok99.de/',
+    _timeout: null,
+    Symbol(shapeMode): true,
+    Symbol(kCapture): false
+  },
+  cause: Error: getaddrinfo ENOTFOUND ok99.de
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'ok99.de'
+  }
+}
+ ✓ Compiled /success in 387ms (1175 modules)
+ GET /success?session_id=cs_test_a1WRzhHaNt2nab8f025LYALSq8U2bt6d6o2WZlHxSo6PaA2Bj2sE5nhHMN 200 in 446ms
+ POST /api/webhook 200 in 15ms
+PageSpeed API error: AxiosError: Request failed with status code 400
+    at settle (webpack-internal:///(rsc)/./node_modules/axios/lib/core/settle.js:24:12)
+    at Unzip.handleStreamEnd (webpack-internal:///(rsc)/./node_modules/axios/lib/adapters/http.js:1116:73)
+    at Unzip.emit (node:events:509:20)
+    at endReadableNT (node:internal/streams/readable:1744:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (webpack-internal:///(rsc)/./node_modules/axios/lib/core/Axios.js:59:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async fetchPageSpeedData (webpack-internal:///(rsc)/./app/api/audit/route.ts:17:26)
+    at async Promise.all (index 0)
+    at async POST (webpack-internal:///(rsc)/./app/api/audit/route.ts:71:46)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  isAxiosError: true,
+  code: 'ERR_BAD_REQUEST',
+  config: [Object: null prototype] {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true,
+      advertiseZstdAcceptEncoding: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': undefined,
+      'User-Agent': 'axios/1.17.0',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    params: {
+      url: 'https://ok99.de',
+      key: 'AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic',
+      strategy: 'mobile'
+    },
+    method: 'get',
+    url: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'GET /pagespeedonline/v5/runPagespeed?url=https:%2F%2Fok99.de&key=AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic&strategy=mobile HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'User-Agent: axios/1.17.0\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: www.googleapis.com\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      options: [Object: null prototype],
+      defaultPort: 443,
+      protocol: 'https:',
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      agentKeepAliveTimeoutBuffer: 1000,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: false,
+    httpValidation: undefined,
+    joinDuplicateHeaders: undefined,
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 400,
+      statusMessage: 'Bad Request',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https:%2F%2Fok99.de&key=AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic&strategy=mobile',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 24,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0,
+      Symbol(kAbortController): null
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'www.googleapis.com',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 4,
+      _onNativeResponse: [Function (anonymous)],
+      _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https:%2F%2Fok99.de&key=AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic&strategy=mobile',
+      _timeout: null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'www.googleapis.com',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'www.googleapis.com',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      timeout: 5000,
+      _httpMessage: null,
+      parser: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      Symbol(alpncallback): null,
+      Symbol(res): [TLSWrap],
+      Symbol(verified): true,
+      Symbol(pendingSession): null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TLSWrap],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 196922,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 70083,
+        Symbol(triggerId): 70081,
+        Symbol(kAsyncContextFrame): [AsyncContextFrame [Map]]
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): true,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kSetTOS): undefined,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(connect-options): [Object],
+      Symbol(axios.http.socketListener): true,
+      Symbol(axios.http.currentReq): [Writable]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kPath): '/pagespeedonline/v5/runPagespeed?url=https:%2F%2Fok99.de&key=AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic&strategy=mobile',
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 400,
+    statusText: 'Bad Request',
+    headers: Object [AxiosHeaders] {
+      vary: 'Origin, X-Origin, Referer',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Thu, 04 Jun 2026 14:00:14 GMT',
+      server: 'ESF',
+      'x-xss-protection': '0',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-content-type-options': 'nosniff',
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000',
+      'transfer-encoding': 'chunked'
+    },
+    config: [Object: null prototype] {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      params: [Object],
+      method: 'get',
+      url: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'GET /pagespeedonline/v5/runPagespeed?url=https:%2F%2Fok99.de&key=AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic&strategy=mobile HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'User-Agent: axios/1.17.0\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: www.googleapis.com\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: false,
+      httpValidation: undefined,
+      joinDuplicateHeaders: undefined,
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'www.googleapis.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [TLSSocket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kPath): '/pagespeedonline/v5/runPagespeed?url=https:%2F%2Fok99.de&key=AIzaSyCSFbMQi0SWsBwoCiS_TXohQopDDiLRiic&strategy=mobile',
+      Symbol(kUniqueHeaders): null
+    },
+    data: { error: [Object] }
+  },
+  status: 400
+}
+ POST /api/audit 200 in 20188ms
+ ✓ Compiled /api/generate-pdf in 207ms (949 modules)
+PDF generation error: Error: An `executablePath` or `channel` must be specified for `puppeteer-core`
+    at assert (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/util/assert.js:15:15)
+    at ChromeLauncher.computeLaunchArguments (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/ChromeLauncher.js:84:13)
+    at async ChromeLauncher.launch (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/BrowserLauncher.js:55:28)
+    at async ChromeLauncher.launch (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/ChromeLauncher.js:39:16)
+    at async PuppeteerNode.launch (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/PuppeteerNode.js:120:16)
+    at async POST (webpack-internal:///(rsc)/./app/api/generate-pdf/route.ts:149:23)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13)
+ POST /api/generate-pdf 500 in 1093ms
+PDF generation error: AxiosError: Request failed with status code 500
+    at settle (webpack-internal:///(rsc)/./node_modules/axios/lib/core/settle.js:24:12)
+    at IncomingMessage.handleStreamEnd (webpack-internal:///(rsc)/./node_modules/axios/lib/adapters/http.js:1116:73)
+    at IncomingMessage.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1744:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (webpack-internal:///(rsc)/./node_modules/axios/lib/core/Axios.js:59:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generatePDF (webpack-internal:///(rsc)/./app/api/webhook/route.ts:47:26)
+    at async POST (webpack-internal:///(rsc)/./app/api/webhook/route.ts:166:35)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  isAxiosError: true,
+  code: 'ERR_BAD_RESPONSE',
+  config: [Object: null prototype] {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true,
+      advertiseZstdAcceptEncoding: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      'User-Agent': 'axios/1.17.0',
+      'Content-Length': '1321',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    responseType: 'arraybuffer',
+    method: 'post',
+    url: 'http://localhost:3000/api/generate-pdf',
+    data: '{"score":0,"performanceScore":0,"accessibilityScore":0,"metaTagsScore":0,"schemaMarkupScore":0,"issues":["Meta title fehlt","Meta-Beschreibung fehlt","Viewport Meta-Tag fehlt","Kanonische URL fehlt","LocalBusiness Schema Markup fehlt"],"strengths":[],"actionItems":[{"title":"Meta-Titel hinzufügen","description":"Fügen Sie einen aussagekräftigen Meta-Titel hinzu (50-60 Zeichen)","priority":"high"},{"title":"Meta-Beschreibung hinzufügen","description":"Verfassen Sie eine aussagekräftige Meta-Beschreibung (150-160 Zeichen)","priority":"high"},{"title":"Viewport Meta-Tag hinzufügen","description":"Fügen Sie <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"> hinzu","priority":"high"},{"title":"Kanonische URL definieren","description":"Legen Sie eine kanonische URL fest, um Duplicate-Content-Probleme zu vermeiden","priority":"medium"},{"title":"LocalBusiness Schema Markup hinzufügen","description":"Implementieren Sie strukturierte Daten für Local SEO mit JSON-LD LocalBusiness Schema","priority":"high"},{"title":"Performance optimieren","description":"Verbesserungen der Ladegeschwindigkeit können die Rankings verbessern","priority":"high"}],"metadata":{"domain":"ok99.de","auditedAt":"2026-06-04T13:59:52.973Z","metaTags":{},"hasLocalBusinessSchema":false,"mobileUsable":false}}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 1321,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/generate-pdf HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'User-Agent: axios/1.17.0\r\n' +
+      'Content-Length: 1321\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: localhost:3000\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      options: [Object: null prototype],
+      defaultPort: 80,
+      protocol: 'http:',
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      agentKeepAliveTimeoutBuffer: 1000,
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: false,
+    httpValidation: undefined,
+    joinDuplicateHeaders: undefined,
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 500,
+      statusMessage: 'Internal Server Error',
+      client: [Socket],
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'http://localhost:3000/api/generate-pdf',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 12,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0,
+      Symbol(kAbortController): null
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: true,
+    host: 'localhost',
+    protocol: 'http:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 1321,
+      _requestBodyBuffers: [],
+      _eventsCount: 4,
+      _onNativeResponse: [Function (anonymous)],
+      _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+      _currentRequest: [Circular *1],
+      _currentUrl: 'http://localhost:3000/api/generate-pdf',
+      _timeout: null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): Socket {
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'localhost',
+      _closeAfterHandlingError: false,
+      _events: [Object],
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _eventsCount: 6,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: null,
+      _server: null,
+      timeout: 4000,
+      _httpMessage: null,
+      parser: null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TCP],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 4000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 198025,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 77489,
+        Symbol(triggerId): 77487,
+        Symbol(kAsyncContextFrame): [AsyncContextFrame [Map]]
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): true,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kSetTOS): undefined,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(axios.http.socketListener): true,
+      Symbol(axios.http.currentReq): [Writable]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kPath): '/api/generate-pdf',
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 500,
+    statusText: 'Internal Server Error',
+    headers: Object [AxiosHeaders] {
+      vary: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch',
+      'content-type': 'application/json',
+      date: 'Thu, 04 Jun 2026 13:59:54 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5',
+      'transfer-encoding': 'chunked'
+    },
+    config: [Object: null prototype] {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      responseType: 'arraybuffer',
+      method: 'post',
+      url: 'http://localhost:3000/api/generate-pdf',
+      data: '{"score":0,"performanceScore":0,"accessibilityScore":0,"metaTagsScore":0,"schemaMarkupScore":0,"issues":["Meta title fehlt","Meta-Beschreibung fehlt","Viewport Meta-Tag fehlt","Kanonische URL fehlt","LocalBusiness Schema Markup fehlt"],"strengths":[],"actionItems":[{"title":"Meta-Titel hinzufügen","description":"Fügen Sie einen aussagekräftigen Meta-Titel hinzu (50-60 Zeichen)","priority":"high"},{"title":"Meta-Beschreibung hinzufügen","description":"Verfassen Sie eine aussagekräftige Meta-Beschreibung (150-160 Zeichen)","priority":"high"},{"title":"Viewport Meta-Tag hinzufügen","description":"Fügen Sie <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"> hinzu","priority":"high"},{"title":"Kanonische URL definieren","description":"Legen Sie eine kanonische URL fest, um Duplicate-Content-Probleme zu vermeiden","priority":"medium"},{"title":"LocalBusiness Schema Markup hinzufügen","description":"Implementieren Sie strukturierte Daten für Local SEO mit JSON-LD LocalBusiness Schema","priority":"high"},{"title":"Performance optimieren","description":"Verbesserungen der Ladegeschwindigkeit können die Rankings verbessern","priority":"high"}],"metadata":{"domain":"ok99.de","auditedAt":"2026-06-04T13:59:52.973Z","metaTags":{},"hasLocalBusinessSchema":false,"mobileUsable":false}}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 1321,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/generate-pdf HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'User-Agent: axios/1.17.0\r\n' +
+        'Content-Length: 1321\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: localhost:3000\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: false,
+      httpValidation: undefined,
+      joinDuplicateHeaders: undefined,
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'localhost',
+      protocol: 'http:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [Socket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kPath): '/api/generate-pdf',
+      Symbol(kUniqueHeaders): null
+    },
+    data: <Buffer 7b 22 65 72 72 6f 72 22 3a 22 46 65 68 6c 65 72 20 62 65 69 6d 20 47 65 6e 65 72 69 65 72 65 6e 20 64 65 73 20 50 44 46 22 7d>
+  },
+  status: 500
+}
+Error processing checkout session: AxiosError: Request failed with status code 500
+    at settle (webpack-internal:///(rsc)/./node_modules/axios/lib/core/settle.js:24:12)
+    at IncomingMessage.handleStreamEnd (webpack-internal:///(rsc)/./node_modules/axios/lib/adapters/http.js:1116:73)
+    at IncomingMessage.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1744:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (webpack-internal:///(rsc)/./node_modules/axios/lib/core/Axios.js:59:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generatePDF (webpack-internal:///(rsc)/./app/api/webhook/route.ts:47:26)
+    at async POST (webpack-internal:///(rsc)/./app/api/webhook/route.ts:166:35)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  isAxiosError: true,
+  code: 'ERR_BAD_RESPONSE',
+  config: [Object: null prototype] {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true,
+      advertiseZstdAcceptEncoding: false
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 30000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      'User-Agent': 'axios/1.17.0',
+      'Content-Length': '1321',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    responseType: 'arraybuffer',
+    method: 'post',
+    url: 'http://localhost:3000/api/generate-pdf',
+    data: '{"score":0,"performanceScore":0,"accessibilityScore":0,"metaTagsScore":0,"schemaMarkupScore":0,"issues":["Meta title fehlt","Meta-Beschreibung fehlt","Viewport Meta-Tag fehlt","Kanonische URL fehlt","LocalBusiness Schema Markup fehlt"],"strengths":[],"actionItems":[{"title":"Meta-Titel hinzufügen","description":"Fügen Sie einen aussagekräftigen Meta-Titel hinzu (50-60 Zeichen)","priority":"high"},{"title":"Meta-Beschreibung hinzufügen","description":"Verfassen Sie eine aussagekräftige Meta-Beschreibung (150-160 Zeichen)","priority":"high"},{"title":"Viewport Meta-Tag hinzufügen","description":"Fügen Sie <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"> hinzu","priority":"high"},{"title":"Kanonische URL definieren","description":"Legen Sie eine kanonische URL fest, um Duplicate-Content-Probleme zu vermeiden","priority":"medium"},{"title":"LocalBusiness Schema Markup hinzufügen","description":"Implementieren Sie strukturierte Daten für Local SEO mit JSON-LD LocalBusiness Schema","priority":"high"},{"title":"Performance optimieren","description":"Verbesserungen der Ladegeschwindigkeit können die Rankings verbessern","priority":"high"}],"metadata":{"domain":"ok99.de","auditedAt":"2026-06-04T13:59:52.973Z","metaTags":{},"hasLocalBusinessSchema":false,"mobileUsable":false}}',
+    allowAbsoluteUrls: true
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 1321,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/generate-pdf HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/json\r\n' +
+      'User-Agent: axios/1.17.0\r\n' +
+      'Content-Length: 1321\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: localhost:3000\r\n' +
+      'Connection: keep-alive\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      options: [Object: null prototype],
+      defaultPort: 80,
+      protocol: 'http:',
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype],
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      agentKeepAliveTimeoutBuffer: 1000,
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: false,
+    httpValidation: undefined,
+    joinDuplicateHeaders: undefined,
+    _ended: true,
+    res: IncomingMessage {
+      _events: [Object],
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 500,
+      statusMessage: 'Internal Server Error',
+      client: [Socket],
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *1],
+      _eventsCount: 4,
+      responseUrl: 'http://localhost:3000/api/generate-pdf',
+      redirects: [],
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kHeaders): [Object],
+      Symbol(kHeadersCount): 12,
+      Symbol(kTrailers): null,
+      Symbol(kTrailersCount): 0,
+      Symbol(kAbortController): null
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: true,
+    host: 'localhost',
+    protocol: 'http:',
+    _redirectable: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 1321,
+      _requestBodyBuffers: [],
+      _eventsCount: 4,
+      _onNativeResponse: [Function (anonymous)],
+      _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+      _currentRequest: [Circular *1],
+      _currentUrl: 'http://localhost:3000/api/generate-pdf',
+      _timeout: null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    Symbol(shapeMode): false,
+    Symbol(kCapture): false,
+    Symbol(kBytesWritten): 0,
+    Symbol(kNeedDrain): false,
+    Symbol(corked): 0,
+    Symbol(kChunkedBuffer): [],
+    Symbol(kChunkedLength): 0,
+    Symbol(kSocket): Socket {
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'localhost',
+      _closeAfterHandlingError: false,
+      _events: [Object],
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _eventsCount: 6,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: null,
+      _server: null,
+      timeout: 4000,
+      _httpMessage: null,
+      parser: null,
+      Symbol(async_id_symbol): -1,
+      Symbol(kHandle): [TCP],
+      Symbol(lastWriteQueueSize): 0,
+      Symbol(timeout): Timeout {
+        _idleTimeout: 4000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 198025,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        Symbol(refed): false,
+        Symbol(kHasPrimitive): false,
+        Symbol(asyncId): 77489,
+        Symbol(triggerId): 77487,
+        Symbol(kAsyncContextFrame): [AsyncContextFrame [Map]]
+      },
+      Symbol(kBuffer): null,
+      Symbol(kBufferCb): null,
+      Symbol(kBufferGen): null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false,
+      Symbol(kSetNoDelay): true,
+      Symbol(kSetKeepAlive): true,
+      Symbol(kSetKeepAliveInitialDelay): 1,
+      Symbol(kSetTOS): undefined,
+      Symbol(kBytesRead): 0,
+      Symbol(kBytesWritten): 0,
+      Symbol(axios.http.socketListener): true,
+      Symbol(axios.http.currentReq): [Writable]
+    },
+    Symbol(kOutHeaders): [Object: null prototype] {
+      accept: [Array],
+      'content-type': [Array],
+      'user-agent': [Array],
+      'content-length': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    Symbol(errored): null,
+    Symbol(kHighWaterMark): 65536,
+    Symbol(kRejectNonStandardBodyWrites): false,
+    Symbol(kPath): '/api/generate-pdf',
+    Symbol(kUniqueHeaders): null
+  },
+  response: {
+    status: 500,
+    statusText: 'Internal Server Error',
+    headers: Object [AxiosHeaders] {
+      vary: 'RSC, Next-Router-State-Tree, Next-Router-Prefetch',
+      'content-type': 'application/json',
+      date: 'Thu, 04 Jun 2026 13:59:54 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5',
+      'transfer-encoding': 'chunked'
+    },
+    config: [Object: null prototype] {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 30000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      responseType: 'arraybuffer',
+      method: 'post',
+      url: 'http://localhost:3000/api/generate-pdf',
+      data: '{"score":0,"performanceScore":0,"accessibilityScore":0,"metaTagsScore":0,"schemaMarkupScore":0,"issues":["Meta title fehlt","Meta-Beschreibung fehlt","Viewport Meta-Tag fehlt","Kanonische URL fehlt","LocalBusiness Schema Markup fehlt"],"strengths":[],"actionItems":[{"title":"Meta-Titel hinzufügen","description":"Fügen Sie einen aussagekräftigen Meta-Titel hinzu (50-60 Zeichen)","priority":"high"},{"title":"Meta-Beschreibung hinzufügen","description":"Verfassen Sie eine aussagekräftige Meta-Beschreibung (150-160 Zeichen)","priority":"high"},{"title":"Viewport Meta-Tag hinzufügen","description":"Fügen Sie <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"> hinzu","priority":"high"},{"title":"Kanonische URL definieren","description":"Legen Sie eine kanonische URL fest, um Duplicate-Content-Probleme zu vermeiden","priority":"medium"},{"title":"LocalBusiness Schema Markup hinzufügen","description":"Implementieren Sie strukturierte Daten für Local SEO mit JSON-LD LocalBusiness Schema","priority":"high"},{"title":"Performance optimieren","description":"Verbesserungen der Ladegeschwindigkeit können die Rankings verbessern","priority":"high"}],"metadata":{"domain":"ok99.de","auditedAt":"2026-06-04T13:59:52.973Z","metaTags":{},"hasLocalBusinessSchema":false,"mobileUsable":false}}',
+      allowAbsoluteUrls: true
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 1321,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/generate-pdf HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'User-Agent: axios/1.17.0\r\n' +
+        'Content-Length: 1321\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: localhost:3000\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: false,
+      httpValidation: undefined,
+      joinDuplicateHeaders: undefined,
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'localhost',
+      protocol: 'http:',
+      _redirectable: [Writable],
+      Symbol(shapeMode): false,
+      Symbol(kCapture): false,
+      Symbol(kBytesWritten): 0,
+      Symbol(kNeedDrain): false,
+      Symbol(corked): 0,
+      Symbol(kChunkedBuffer): [],
+      Symbol(kChunkedLength): 0,
+      Symbol(kSocket): [Socket],
+      Symbol(kOutHeaders): [Object: null prototype],
+      Symbol(errored): null,
+      Symbol(kHighWaterMark): 65536,
+      Symbol(kRejectNonStandardBodyWrites): false,
+      Symbol(kPath): '/api/generate-pdf',
+      Symbol(kUniqueHeaders): null
+    },
+    data: <Buffer 7b 22 65 72 72 6f 72 22 3a 22 46 65 68 6c 65 72 20 62 65 69 6d 20 47 65 6e 65 72 69 65 72 65 6e 20 64 65 73 20 50 44 46 22 7d>
+  },
+  status: 500
+}
+ POST /api/webhook 500 in 21454ms
+ ✓ Compiled /_not-found in 164ms (544 modules)
+ GET / 404 in 40ms
+ GET /_next/static/css/app/layout.css?v=1780582130464 404 in 11ms
+ GET /_next/static/chunks/main-app.js?v=1780582130464 404 in 18ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 16ms
+ GET / 404 in 22ms
+ GET /_next/static/css/app/layout.css?v=1780582256945 404 in 14ms
+ GET /_next/static/chunks/main-app.js?v=1780582256945 404 in 17ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 17ms
+ GET / 404 in 13ms
+ GET /_next/static/css/app/layout.css?v=1780582258765 404 in 15ms
+ GET /_next/static/chunks/main-app.js?v=1780582258765 404 in 19ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 18ms
+ ✓ Compiled /favicon.ico in 165ms (317 modules)
+ GET /favicon.ico 200 in 194ms
+ GET / 404 in 38ms
+ GET /_next/static/css/app/layout.css?v=1780582259338 404 in 15ms
+ GET /_next/static/chunks/main-app.js?v=1780582259338 404 in 17ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 17ms
+ GET /favicon.ico 200 in 4ms
+ ✓ Compiled in 129ms (541 modules)
+ ✓ Compiled /api/audit in 291ms (710 modules)
+ POST /api/audit 200 in 9006ms
+ ✓ Compiled /api/generate-pdf in 101ms (741 modules)
+PDF generation error: Error: An `executablePath` or `channel` must be specified for `puppeteer-core`
+    at assert (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/util/assert.js:15:15)
+    at ChromeLauncher.computeLaunchArguments (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/ChromeLauncher.js:84:13)
+    at async ChromeLauncher.launch (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/BrowserLauncher.js:55:28)
+    at async ChromeLauncher.launch (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/ChromeLauncher.js:39:16)
+    at async PuppeteerNode.launch (file:///home/kores/localseo-checker/node_modules/puppeteer-core/lib/puppeteer/node/PuppeteerNode.js:120:16)
+    at async POST (webpack-internal:///(rsc)/./app/api/generate-pdf/route.ts:149:23)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13)
+ POST /api/generate-pdf 500 in 132ms
+   Reload env: .env.local
+ ✓ Compiled in 128ms (541 modules)
+[?25h

@@ -1,0 +1,109 @@
+
+> localseo-checker@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1819ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1480ms (522 modules)
+ GET / 200 in 1585ms
+ ✓ Compiled in 84ms (247 modules)
+ ✓ Compiled /api/create-checkout-session in 407ms (251 modules)
+Checkout session error: StripeAuthenticationError: Invalid API Key provided: your_str***************here
+    at generateV1Error (webpack-internal:///(rsc)/./node_modules/stripe/esm/Error.js:41:16)
+    at eval (webpack-internal:///(rsc)/./node_modules/stripe/esm/RequestSender.js:121:89)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Originating from:
+    at SessionResource._makeRequest (webpack-internal:///(rsc)/./node_modules/stripe/esm/StripeResource.js:63:31)
+    at SessionResource.create (webpack-internal:///(rsc)/./node_modules/stripe/esm/resources/Checkout/Sessions.js:110:21)
+    at POST (webpack-internal:///(rsc)/./app/api/create-checkout-session/route.ts:36:56)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async /home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/kores/localseo-checker/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/kores/localseo-checker/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/kores/localseo-checker/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/kores/localseo-checker/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/kores/localseo-checker/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/kores/localseo-checker/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  type: 'StripeAuthenticationError',
+  raw: {
+    message: 'Invalid API Key provided: your_str***************here',
+    type: 'invalid_request_error',
+    headers: {
+      server: 'nginx',
+      date: 'Thu, 04 Jun 2026 13:17:42 GMT',
+      'content-type': 'application/json',
+      'content-length': '129',
+      connection: 'keep-alive',
+      'access-control-allow-credentials': 'true',
+      'access-control-allow-methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
+      'access-control-allow-origin': '*',
+      'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+      'access-control-max-age': '300',
+      'cache-control': 'no-cache, no-store',
+      'content-security-policy': "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
+      vary: 'Origin',
+      'www-authenticate': 'Bearer realm="Stripe"',
+      'x-robots-tag': 'none',
+      'x-wc': '383',
+      'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+    },
+    statusCode: 401,
+    requestId: undefined
+  },
+  rawType: 'invalid_request_error',
+  code: undefined,
+  doc_url: undefined,
+  param: undefined,
+  detail: undefined,
+  headers: {
+    server: 'nginx',
+    date: 'Thu, 04 Jun 2026 13:17:42 GMT',
+    'content-type': 'application/json',
+    'content-length': '129',
+    connection: 'keep-alive',
+    'access-control-allow-credentials': 'true',
+    'access-control-allow-methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
+    'access-control-allow-origin': '*',
+    'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+    'access-control-max-age': '300',
+    'cache-control': 'no-cache, no-store',
+    'content-security-policy': "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
+    vary: 'Origin',
+    'www-authenticate': 'Bearer realm="Stripe"',
+    'x-robots-tag': 'none',
+    'x-wc': '383',
+    'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+  },
+  requestId: undefined,
+  statusCode: 401,
+  userMessage: undefined,
+  charge: undefined,
+  decline_code: undefined,
+  payment_intent: undefined,
+  payment_method: undefined,
+  payment_method_type: undefined,
+  setup_intent: undefined,
+  source: undefined
+}
+ POST /api/create-checkout-session 500 in 582ms
+ ✓ Compiled /success in 245ms (755 modules)
+ GET /success 200 in 309ms
+ ✓ Compiled /cancel in 99ms (761 modules)
+ GET /cancel 200 in 127ms
+[?25h
