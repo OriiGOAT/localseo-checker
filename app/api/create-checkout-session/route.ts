@@ -1,30 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import * as fs from 'fs';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
-
-interface SessionData {
-  [key: string]: {
-    domain: string;
-    email: string;
-    createdAt: string;
-  };
-}
-
-function getSessions(): SessionData {
-  const sessionsPath = '/tmp/sessions.json';
-  if (fs.existsSync(sessionsPath)) {
-    const data = fs.readFileSync(sessionsPath, 'utf-8');
-    return JSON.parse(data);
-  }
-  return {};
-}
-
-function saveSessions(sessions: SessionData): void {
-  const sessionsPath = '/tmp/sessions.json';
-  fs.writeFileSync(sessionsPath, JSON.stringify(sessions, null, 2));
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -64,14 +41,8 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Store pending audit in /tmp/sessions.json
-    const sessions = getSessions();
-    sessions[session.id] = {
-      domain,
-      email,
-      createdAt: new Date().toISOString(),
-    };
-    saveSessions(sessions);
+    console.log(`✅ Checkout session created: ${session.id}`);
+    console.log(`📋 Domain: ${domain}, Email: ${email}`);
 
     return NextResponse.json({
       checkoutUrl: session.url,

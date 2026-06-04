@@ -2,18 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
 import axios from 'axios';
-import * as fs from 'fs';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-interface SessionData {
-  [key: string]: {
-    domain: string;
-    email: string;
-    createdAt: string;
-  };
-}
 
 interface AuditResult {
   score: number;
@@ -34,22 +25,6 @@ interface AuditResult {
     hasLocalBusinessSchema: boolean;
     mobileUsable: boolean;
   };
-}
-
-function getSessions(): SessionData {
-  const sessionsPath = '/tmp/sessions.json';
-  if (fs.existsSync(sessionsPath)) {
-    const data = fs.readFileSync(sessionsPath, 'utf-8');
-    return JSON.parse(data);
-  }
-  return {};
-}
-
-function removeSessions(sessionId: string): void {
-  const sessions = getSessions();
-  delete sessions[sessionId];
-  const sessionsPath = '/tmp/sessions.json';
-  fs.writeFileSync(sessionsPath, JSON.stringify(sessions, null, 2));
 }
 
 async function runAudit(domain: string): Promise<AuditResult> {
@@ -276,16 +251,17 @@ export async function POST(request: NextRequest) {
 
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
-      const sessions = getSessions();
-      const pendingSession = sessions[session.id];
 
-      if (!pendingSession) {
-        console.warn(`No pending session found for ${session.id}`);
+      // Get domain and email from Stripe session metadata (no /tmp storage needed)
+      const domain = session.metadata?.domain;
+      const email = session.metadata?.email;
+
+      if (!domain || !email) {
+        console.error(`❌ Missing metadata in session ${session.id}. Domain: ${domain}, Email: ${email}`);
         return NextResponse.json({ success: true });
       }
 
       try {
-        const { domain, email } = pendingSession;
 
         console.log(`🔄 Webhook: Processing audit for ${domain} (${email})`);
 
@@ -295,9 +271,6 @@ export async function POST(request: NextRequest) {
 
         console.log(`📧 Sending email to ${email}...`);
         await sendEmail(email, auditResult);
-
-        console.log(`🗑️ Cleaning up session data...`);
-        removeSessions(session.id);
 
         console.log(`✅ Webhook complete! Payment processed successfully for ${domain}`);
       } catch (error) {
